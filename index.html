@@ -45,34 +45,34 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
       // console.log("This file last modified  " + docMod);
 // If you find the alert box annoying, comment out that line and timestamp will still show up in the debugging console
 
-        var allergy_count = 0;
-        var cold_count = 0;
+        var asthma_count = 0;
+        var copd_count = 0;
 	// the variables used to store the count of answers that correspond to a cold or allergy
 
 
-        function allergyAdd(){
-            allergy_count = allergy_count + 1;
+        function asthmaAdd(){
+            asthma_count = asthma_count + 1;
 		// every time function is called or after question is answered and answer matches allergy, the allergy count variable increases by 1
 
         }
 
-        function coldAdd(){
-            cold_count = cold_count + 1;
+        function copdAdd(){
+            copd_count = copd_count + 1;
 		// every time function is called or after a question is answered and answer matches cold symptoms, the cold count increases by 1
         }
 
 	function resultsPercents() {
-		var allergy_percent;
-		var cold_percent;
+		var asthma_percent;
+		var copd_percent;
 		// the variables used to store the percent of answers that correspond to a cold or allergies
-		allergy_percent = (allergy_count/4) * 100; 
+		asthma_percent = (asthma_count/4) * 100; 
 		// divides by 4 to get decimal and multiplies by 100 to get percent
-		cold_percent = (cold_count/4) *100;
+		copd_percent = (copd_count/4) *100;
 		// divides by 4 to get decimal and multiplies by 100 to get percent
 		var resultText = document.getElementById("results");
 		// captures content from the results page
-		resultText.innerHTML = "Probability it is allergies =" + allergy_percent + "%" + 
-			"<br>Probability it is a cold =" + cold_percent + "%";
+		resultText.innerHTML = "Probability it is asthma =" + asthma_percent + "%" + 
+			"<br>Probability it is COPD =" + copd_percent + "%";
 		// displays output so allergy percent and cold percent and also uses concatenation to add percent symbols and other words besides the variables
 		// the <br> makes a line break
 		// this function basically calculates the percent of answers that favored a cold and the percent that favored allergies
@@ -107,11 +107,11 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 <body>
 	
 <div id="header" class="w3-container w3-flat-carrot"> <!-- specifies divisions in the code-->
-	<h1>Cold or Allergies?</h1> <!--header-->
+	<h1>COPD or Asthma?</h1> <!--header-->
 </div>
 	
 <div id="content" class="w3-container">
-	<p>Are you feeling like you might have a cold but wonder if it is allergies. Answer a few short questions to find out!</p>
+	<p>Are you feeling like you might have Asthma but wonder if it is COPD? Answer a few short questions to find out!</p>
 	
 	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a> <!--creates the get started button and takes them to page one-->
 	
@@ -125,10 +125,10 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	
     	<div id="content" class="w3-container">
-        <p>Are your eyes watery or itchy?</p>    <!-- creating the first question-->
-		<a href="#two" onclick="allergyAdd();" class="w3-btn w3-black">Yes</a>	<!--calls allergyAdd if yes and made button yes, also takes them to page two-->
-		<a href="#two" onclick="coldAdd();" class="w3-btn w3-black">No</a>	<!-- calls coldAdd if no and made button no, also takes them to page two-->
-    	</div><!-- For question 1, if users answered yes, their allergy count will increase by one by calling the allergyAdd function and if users answered no, their cold count will increase by one by calling the coldAdd function -->
+        <p>Do you have a history of smoking?</p>    <!-- creating the first question-->
+		<a href="#two" onclick="copdAdd();" class="w3-btn w3-black">Yes</a>	<!--calls copdAdd if yes and made button yes, also takes them to page two-->
+		<a href="#two" onclick="asthmaAdd();" class="w3-btn w3-black">No</a>	<!-- calls asthmaAdd if no and made button no, also takes them to page two-->
+    	</div><!-- For question 1, if users answered yes, their copd count will increase by one by calling the copdAdd function and if users answered no, their asthma count will increase by one by calling the asthmaAdd function -->
 </div>
 
 <div class="page" id="two"> <!-- creates page for question 2-->
@@ -137,10 +137,10 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	
 	<div id="content" class="w3-container">
-		<p>Do you have a fever?</p> <!-- creates question 2-->
-			<a href="#three" onclick="coldAdd();" class="w3-btn w3-black">Yes</a> <!-- calls coldAdd if yes and made button yes, also takes them to page three-->
-			<a href="#three" onclick="allergyAdd();" class="w3-btn w3-black">No</a> <!-- calls allergyAdd if no and made button no, also takes them to page three -->
-	</div><!-- Code for question 2, basically if the user answered no, allergy count will increase by calling the allergyAdd function and if they answered yes, the cold count will increase -->
+		<p>Did you breathing difficulties begin in childhood?</p> <!-- creates question 2-->
+			<a href="#three" onclick="asthmaAdd();" class="w3-btn w3-black">Yes</a> <!-- calls asthmaAdd if yes and made button yes, also takes them to page three-->
+			<a href="#three" onclick="copdAdd();" class="w3-btn w3-black">No</a> <!-- calls copdAdd if no and made button no, also takes them to page three -->
+	</div><!-- Code for question 2, basically if the user answered no, copd count will increase by calling the copdAdd function and if they answered yes, the asthma count will increase -->
 </div>	
 
 <div class="page" id="three"> <!-- creates page for question three -->
@@ -149,10 +149,10 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 
 	<div id="content" class="w3-container">
-		<p>Do you have a sore throat?</p> <!-- asks user question 3 -->
-			<a href="#four" onclick="coldAdd();" class="w3-btn w3-black">Yes</a>	<!-- calls coldAdd if yes and made yes button, also takes them to page four -->
-			<a href="#four" onclick="allergyAdd();" class="w3-btn w3-black">No</a> <!-- calls allergyAdd if no and made no button, also takes them to page four -->
-	</div><!-- Code for question 3, if user answered no, their allergy count will increase and if they answered yes, their cold count will increase -->
+		<p>Did you experience unintentional weight loss?</p> <!-- asks user question 3 -->
+			<a href="#four" onclick="copdAdd();" class="w3-btn w3-black">Yes</a>	<!-- calls copdAdd if yes and made yes button, also takes them to page four -->
+			<a href="#four" onclick="asthmaAdd();" class="w3-btn w3-black">No</a> <!-- calls asthmaAdd if no and made no button, also takes them to page four -->
+	</div><!-- Code for question 3, if user answered no, their asthma count will increase and if they answered yes, their copd count will increase -->
 </div>
 
 <div class="page" id="four"> <!-- creates page for question 4-->
@@ -161,10 +161,10 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 
 	<div id="content" class="w3-container">
-		<p>Are your symptoms seasonal or chronic?</p> <!-- asks user question 4 -->
-			<a href="#five" onclick="allergyAdd();" class="w3-btn w3-black">Yes</a> <!-- calls allergyAdd if yes and made yes button, also takes them to results page -->
-			<a href="#five" onclick="coldAdd();" class="w3-btn w3-black">No</a> <!-- calls coldAdd if no and made no button, also takes them to results page -->
-	</div><!-- Code for question 4, if users answered yes, allergy count increases and if they answered no, cold count increases -->
+		<p>Did you have increased phlegm and mucus production?</p> <!-- asks user question 4 -->
+			<a href="#five" onclick="copdAdd();" class="w3-btn w3-black">Yes</a> <!-- calls copdAdd if yes and made yes button, also takes them to results page -->
+			<a href="#five" onclick="asthmaAdd();" class="w3-btn w3-black">No</a> <!-- calls asthmaAdd if no and made no button, also takes them to results page -->
+	</div><!-- Code for question 4, if users answered yes, copd count increases and if they answered no, asthma count increases -->
 </div>
 
 <div class="page" id="five"> <!-- creates a new page for the results -->
