@@ -47,24 +47,24 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
         var asthma_count = 0;
         var copd_count = 0;
-	// the variables used to store the count of answers that correspond to a cold or allergy
+	// the variables used to store the count of answers that correspond to a asthma or COPD
 
 
         function asthmaAdd(){
             asthma_count = asthma_count + 1;
-		// every time function is called or after question is answered and answer matches allergy, the allergy count variable increases by 1
+		// every time function is called or after question is answered and answer matches asthma, the asthma count variable increases by 1
 
         }
 
         function copdAdd(){
             copd_count = copd_count + 1;
-		// every time function is called or after a question is answered and answer matches cold symptoms, the cold count increases by 1
+		// every time function is called or after a question is answered and answer matches copd symptoms, the copd count increases by 1
         }
 
 	function resultsPercents() {
 		var asthma_percent;
 		var copd_percent;
-		// the variables used to store the percent of answers that correspond to a cold or allergies
+		// the variables used to store the percent of answers that correspond to a copd or asthma
 		asthma_percent = (asthma_count/4) * 100; 
 		// divides by 4 to get decimal and multiplies by 100 to get percent
 		copd_percent = (copd_count/4) *100;
@@ -73,9 +73,9 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 		// captures content from the results page
 		resultText.innerHTML = "Probability it is asthma =" + asthma_percent + "%" + 
 			"<br>Probability it is COPD =" + copd_percent + "%";
-		// displays output so allergy percent and cold percent and also uses concatenation to add percent symbols and other words besides the variables
+		// displays output so asthma percent and copd percent and also uses concatenation to add percent symbols and other words besides the variables
 		// the <br> makes a line break
-		// this function basically calculates the percent of answers that favored a cold and the percent that favored allergies
+		// this function basically calculates the percent of answers that favored asthma and the percent that favored copd
 	}
 
 </script>	
@@ -106,6 +106,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 img, object {
 	max-height:90%;
 	max-width:90%;
+	/* creates a resize-able image that adjusts depending on screen size */
 }
 	
 </style>
@@ -187,6 +188,7 @@ img, object {
 
 <div class= "img" id="resizing picture">
 	<img src="https://cdn.pixabay.com/photo/2013/07/12/19/03/lungs-154282_640.png" alt="Lungs">
+	<!-- entered in the link for the image and put it in the img class so that it will be resize -->
 </div>
 
 <footer class="w3-bottom w3-container w3-flat-carrot">
